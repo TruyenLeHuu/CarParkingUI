@@ -20,7 +20,7 @@ Item {
 		id: rectangle0
 		color: "#090909"
 		height: parent.height
-		width: parent.width - 400
+		width: (parent.width - 400*mainWindow.scale)
 		anchors.top : parent.top
         anchors.left : parent.left
 
@@ -33,20 +33,24 @@ Item {
         property int carRotation: 0
         property int carSpeed: 0
 		property int isChosen: 0
+
+		property int lineW: 10
+		property int lineH: 50
+		property int distance: 150
 		property string labelAnnouncement: "Please choose your parking slot!"
 		
 		Rectangle {
 			id: line0
-			height: 100
-			width: 20
+			height: 100*mainWindow.scale
+			width: 20*mainWindow.scale
 			z: 1
-			x: (parent.width-width) /2 - 100
+			x: (parent.width-width) /2 - 100*mainWindow.scale
 			color: "white"
 			SequentialAnimation {
 				id: animationLine
 				loops: Animation.Infinite
 				running: true
-				NumberAnimation { target: line0; property: "y"; from: -100; to: 1100; duration: 4000}
+				NumberAnimation { target: line0; property: "y"; from: -100*mainWindow.scale; to: 1100*mainWindow.scale; duration: 4000}
 			}
 		}
 		SequentialAnimation {
@@ -58,136 +62,136 @@ Item {
 		}
 		Rectangle {
 				id: linet4
-				height: 100
-				width: 20
+				height: rectangle0.lineH
+				width: rectangle0.lineW
 				z: 1
-				y: linet3.y - 300
+				y: linet3.y - rectangle0.distance
 				x:  line0.x
 				color: "white"
 		}
 		Rectangle {
 				id: linet3
-				height: 100
-				width: 20
+				height: rectangle0.lineH
+				width: rectangle0.lineW
 				z: 1
-				y: linet2.y - 300
+				y: linet2.y - rectangle0.distance
 				x:  line0.x
 				color: "white"
 		}
 		Rectangle {
 				id: linet2
-				height: 100
-				width: 20
+				height: rectangle0.lineH
+				width: rectangle0.lineW
 				z: 1
-				y: linet1.y - 300
+				y: linet1.y - rectangle0.distance
 				x:  line0.x
 				color: "white"
 		}
 		Rectangle {
 				id: linet1
-				height: 100
-				width: 20
+				height: rectangle0.lineH
+				width: rectangle0.lineW
 				z: 1
-				y: line0.y - 300
+				y: line0.y - rectangle0.distance
 				x:  line0.x
 				color: "white"
 		}
 		Rectangle {
 				id: line1
-				height: 100
-				width: 20
+				height: rectangle0.lineH
+				width: rectangle0.lineW
 				z: 1
-				y: line0.y + 300
+				y: line0.y + rectangle0.distance
 				x:  line0.x
 				color: "white"
 		}
 		Rectangle {
 				id: line2
-				height: 100
-				width: 20
+				height: rectangle0.lineH
+				width: rectangle0.lineW
 				z: 1
-				y: line1.y + 300
+				y: line1.y + rectangle0.distance
 				x:  line0.x
 				color: "white"
 		}
 		Rectangle {
 				id: line3
-				height: 100
-				width: 20
+				height: rectangle0.lineH
+				width: rectangle0.lineW
 				z: 1
-				y: line2.y + 300
+				y: line2.y + rectangle0.distance
 				x:  line0.x
 				color: "white"
 		}
 		Rectangle {
 				id: linert4
-				height: 100
-				width: 20
+				height: rectangle0.lineH
+				width: rectangle0.lineW
 				z: 1
-				y: linet3.y - 300
+				y: linet3.y - rectangle0.distance
 				x:  liner0.x
 				color: "white"
 		}
 		Rectangle {
 				id: linert3
-				height: 100
-				width: 20
+				height: rectangle0.lineH
+				width: rectangle0.lineW
 				z: 1
-				y: linet2.y - 300
+				y: linet2.y - rectangle0.distance
 				x:  liner0.x
 				color: "white"
 		}
 		Rectangle {
 				id: linert2
-				height: 100
-				width: 20
+				height: rectangle0.lineH
+				width: rectangle0.lineW
 				z: 1
-				y: linet1.y - 300
+				y: linet1.y - rectangle0.distance
 				x:  liner0.x
 				color: "white"
 		}
 		Rectangle {
 				id: linert1
-				height: 100
-				width: 20
+				height: rectangle0.lineH
+				width: rectangle0.lineW
 				z: 1
-				y: line0.y - 300
+				y: line0.y - rectangle0.distance
 				x:  liner0.x
 				color: "white"
 		}
 		Rectangle {
 				id: liner0
-				height: 100
-				width: 20
+				height: rectangle0.lineH
+				width: rectangle0.lineW
 				z: 1
 				y: line0.y
-				x:  (parent.width-width) /2 + 100
+				x:  (parent.width-width) /2 + 100*mainWindow.scale
 				color: "white"
 		}
 		Rectangle {
 				id: liner1
-				height: 100
-				width: 20
+				height: rectangle0.lineH
+				width: rectangle0.lineW
 				z: 1
-				y: line0.y + 300
+				y: line0.y + rectangle0.distance
 				x:  liner0.x
 				color: "white"
 		}
 		Rectangle {
 				id: liner2
-				height: 100
-				width: 20
+				height: rectangle0.lineH
+				width: rectangle0.lineW
 				z: 1
-				y: line1.y + 300
+				y: line1.y + rectangle0.distance
 				x:  liner0.x
 				color: "white"
 		}
 		Rectangle {
 				id: liner3
-				height: 100
-				width: 20
+				height: rectangle0.lineH
+				width: rectangle0.lineW
 				z: 1
-				y: line2.y + 300
+				y: line2.y + rectangle0.distance
 				x:  liner0.x
 				color: "white"
 		}
@@ -202,7 +206,7 @@ Item {
 		{
 			id: bush
 			scale: 0.1
-			x: -600
+			x: -600*mainWindow.scale
 			y: linet1.y
 			z: 1
 			smooth: true
@@ -218,8 +222,8 @@ Item {
 		{
 
 			id: car
-			width: 446 * 0.3
-			height: 850 * 0.3
+			width: 446 * 0.3 *mainWindow.scale
+			height: 850 * 0.3 *mainWindow.scale
 
 			x: rectangle0.carX - width/2
 			y: rectangle0.carY - height/2
@@ -245,21 +249,21 @@ Item {
 		id: rectangle
 		color: "#161616"
 		height: parent.height
-		width: 400
+		width: 400*mainWindow.scale
 		anchors.top : parent.top
         anchors.left : parent.left
         anchors.leftMargin: parent.width - width
 		// anchors.fill: parent
-		property int widthBrakeGauge: 300
-		property int heightBrakeGauge: 300
+		property int widthBrakeGauge: 300*mainWindow.scale
+		property int heightBrakeGauge: 300*mainWindow.scale
 
-		property int widthSpeedGauge: 250
-		property int heightSpeedGauge: 250
+		property int widthSpeedGauge: 250*mainWindow.scale
+		property int heightSpeedGauge: 250*mainWindow.scale
 
-		property int widthSAngleGauge: 250
-		property int heightSAngleGauge: 250
+		property int widthSAngleGauge: 250*mainWindow.scale
+		property int heightSAngleGauge: 250*mainWindow.scale
 		
-		property int yValueBrakeGauge: 100
+		property int yValueBrakeGauge: 80*mainWindow.scale
 		property bool isTakeSteeringValue: true
 
 	// ############## INI GAUGE 0  #####################################
@@ -268,7 +272,7 @@ Item {
 		width: parent.widthSpeedGauge
         height: parent.heightSpeedGauge
         anchors.top : parent.top
-        anchors.topMargin: 50
+        anchors.topMargin: 30
         anchors.left : parent.left
         anchors.leftMargin: (parent.width-height)/2
         visible: true
@@ -453,7 +457,7 @@ Item {
 				Text {
 					id:textspeedGauge
 					anchors.horizontalCenter: parent.horizontalCenter
-					y: 70
+					y: 40
 					text: Math.floor(speedGauge.value)
 					// text: car.rotation
 					font.family: "Helvetica"
@@ -499,7 +503,7 @@ Item {
 		width: parent.widthBrakeGauge	
         height: parent.heightBrakeGauge
         anchors.top : parent.top
-        anchors.topMargin: 640
+        anchors.topMargin: 325
         anchors.left : parent.left
         anchors.leftMargin: (parent.width-height)/2
         visible: true
@@ -669,7 +673,7 @@ Item {
         width: parent.widthSAngleGauge
         height: parent.heightSAngleGauge
         anchors.top : parent.top
-        anchors.topMargin: 350
+        anchors.topMargin: 185
         anchors.left : parent.left
         anchors.leftMargin: (parent.width-height)/2
         visible: true
@@ -732,8 +736,8 @@ Item {
                 Label {
                     //anchors.centerIn: parent
                     anchors.horizontalCenter: parent.horizontalCenter
-                    y: 0.1*parent.width-15
-                    font.pointSize: 20
+                    y: 0.1*parent.width-5
+                    font.pointSize: 20*mainWindow.scale
                     color: "#ffffff"
                     //text: Number(customSlider.value).toFixed()
                     text: Number(customSlider.value).toFixed()
@@ -747,10 +751,10 @@ Item {
 					color: "#00000000"
 					Text {
 						anchors.horizontalCenter: parent.horizontalCenter
-						y: parent.width+20
+						y: parent.width+10
 						text: "Degrees"
 						font.family: "Helvetica"
-						font.pointSize: Math.max(6, parent.width * 0.2)
+						font.pointSize: Math.max(6, parent.width * 0.3)
 						// color: "#404040"
 						color: "#ffffff"
 					}
@@ -761,7 +765,7 @@ Item {
                 color: "#00A5FF"
                 font.pointSize: 16
                 anchors.bottom: customSlider.top
-                anchors.bottomMargin: 10
+                anchors.bottomMargin: 5
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 			Image {
@@ -795,13 +799,13 @@ Item {
 	Button {
 			id: button1
 			text: qsTr("Start Parking")
-			y: parent.height - 50
+			y: (parent.height - 50*mainWindow.scale) 
 			// enabled: true
-			font.pointSize: 10
+			font.pointSize: 10*mainWindow.scale
 			onClicked: {
-				var parkingSlot = [{x:rectangle0.carX + 240, y:rectangle0.carY - 200, id: "null"}, {x:rectangle0.carX + 240, y:rectangle0.carY+ 400, id: "null"}]
-				// console.log(rectangle0.carX) 360
-				// console.log(rectangle0.carY) 470
+				var parkingSlot = [{x:rectangle0.carX - 240*mainWindow.scale, y:rectangle0.carY - 100*mainWindow.scale, id: "null"}, {x:rectangle0.carX + 240*mainWindow.scale, y:rectangle0.carY+ 300*mainWindow.scale, id: "null"}]
+				console.log(rectangle0.carX)
+				console.log(rectangle0.carY)
 				frontend.onCreateCarParkingSlot(parkingSlot)
 			}
 
@@ -816,8 +820,8 @@ Item {
 			}
 
 			background: Rectangle {
-				implicitWidth: 120
-				implicitHeight: 50
+				implicitWidth: 120*mainWindow.scale
+				implicitHeight: 50*mainWindow.scale
 				opacity: enabled ? 1 : 0.3
 				border.color: button1.down ? "#17a81a" : "#21be2b"
 				border.width: 1
@@ -827,9 +831,9 @@ Item {
 		Button {
 			id: button2
 			text: qsTr("Done Parking")
-			y: parent.height - 110
+			y: (parent.height - 110*mainWindow.scale )
 			// enabled: true
-			font.pointSize: 10
+			font.pointSize: 10*mainWindow.scale
 			onClicked: frontend.doneCarParking()
 
 			contentItem: Text {
@@ -843,8 +847,8 @@ Item {
 			}
 
 			background: Rectangle {
-				implicitWidth: 120
-				implicitHeight: 50
+				implicitWidth: 120*mainWindow.scale
+				implicitHeight: 50*mainWindow.scale
 				opacity: enabled ? 1 : 0.3
 				border.color: button2.down ? "#17a81a" : "#21be2b"
 				border.width: 1
@@ -878,8 +882,8 @@ Item {
         // }
 		function onCreateCarParkingSlot(parkingSlots)
 		{
-			const PARKING_SLOT_WIDTH = 150;
-			const PARKING_SLOT_HEIGHT = 250;
+			const PARKING_SLOT_WIDTH = 150*mainWindow.scale;
+			const PARKING_SLOT_HEIGHT = 250*mainWindow.scale;
 			var parkingSlotComponent = Qt.createComponent("../controls/ParkingSlot.qml");
 			var nonParkingSlotComponent = Qt.createComponent("../controls/NonParkingSlot.qml");
 			var label = Qt.createComponent("../controls/Announcement.qml");
@@ -896,7 +900,7 @@ Item {
 					parkingSlots[i].id = parkingSlotComponent.createObject(	container, 
 																			{slotNumber: i, 
 																			x: UIx, 
-																			y: UIy - 295, 
+																			y: UIy - 295*mainWindow.scale, 
 																			rotation: (parkingSlots[i].x > rectangle0.carX ? 180 : 0)});
 					// nonParkingSlotComponent.createObject(container, {id:"nonParkingSlotR" + toString(i), x: UIx, y: UIy + 180});
 					// nonParkingSlotComponent.createObject(container, {id:"nonParkingSlotL" + toString(i), x: UIx, y: UIy - 180});
@@ -908,8 +912,8 @@ Item {
 		}
 		function doneCarParking()
 		{
-			const PARKING_SLOT_WIDTH = 150;
-			const PARKING_SLOT_HEIGHT = 250;
+			const PARKING_SLOT_WIDTH = 150*mainWindow.scale;
+			const PARKING_SLOT_HEIGHT = 250*mainWindow.scale;
 			var doneParkingSlotComponent = Qt.createComponent("../controls/DoneParkingSlot.qml");
 			if (doneParkingSlotComponent.status === Component.Ready) {
 				doneParkingSlotComponent.createObject(container, {	x: rectangle0.chosenSlotX,

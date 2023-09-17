@@ -12,10 +12,10 @@ import QtQuick.Dialogs 1.3
 
 Window {
     id: mainWindow
-    width: 1200
-    height: 0.65*1600
-    minimumWidth: 760
-    minimumHeight: 520
+    width: 1200*mainWindow.scale
+    height: 0.65*1600*mainWindow.scale
+    minimumWidth: 600
+    minimumHeight: 400
     visible: true
     color: "#00000000"
     title: qsTr("Auto Parking UI")
@@ -26,7 +26,7 @@ Window {
     // Propeties
     property int windowStatus: 0
     property int windowMargin: 10
-
+    property double scale: 0.5
     // Text Edit Properties
     property alias actualPage: stackView.currentItem
 
@@ -209,7 +209,7 @@ Window {
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
                         verticalAlignment: Text.AlignVCenter
-                        font.pointSize: 20
+                        font.pointSize: 20*(mainWindow.scale+0.2)
                         font.bold: true
                         anchors.leftMargin: 5
                     }

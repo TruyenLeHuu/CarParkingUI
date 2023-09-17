@@ -1,8 +1,8 @@
 import QtQuick 2.12
 
 Rectangle {
-    width: 250
-    height: 150
+    width: 250*mainWindow.scale
+    height: 150*mainWindow.scale
 
     color: "green"
 
@@ -41,7 +41,7 @@ Rectangle {
     }
     Image {
         id: parkingImage
-        scale: 0.25
+        scale: 0.25*mainWindow.scale
         rotation: 270
         opacity:0.5
         source: "../../images/png_images/parking_ground.png"
@@ -49,8 +49,8 @@ Rectangle {
     }
     Image {
         id: carImage
-        width: 446 * 0.3
-        height: 850 * 0.3
+        width: 446 * 0.3 *mainWindow.scale
+        height: 850 * 0.3 *mainWindow.scale
         z: 1
         opacity:0
         source: "../../images/png_images/car-top-view.png"
