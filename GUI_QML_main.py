@@ -68,7 +68,7 @@ class MainWindow(QObject):
 		self.engine = QQmlApplicationEngine(self)
 		self.engine.rootContext().setContextProperty("backend", self)
 		self.engine.load(QUrl("./qml/main.qml"))
-
+		
 		#### SETUP CUSTOM DATA ##############################################
 		self.setupData()
 
@@ -81,9 +81,9 @@ class MainWindow(QObject):
 		self.keyboard_listener.start()
 		# create thread for socket client
 
-		self.client_thread = threading.Thread(target= self.handle_server)
+		# self.client_thread = threading.Thread(target= self.handle_server)
 
-		self.client_thread.start()
+		# self.client_thread.start()
 	
 		sys.exit(self.app.exec_())
 	

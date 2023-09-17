@@ -22,10 +22,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ************************************************************************************/
 
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtQuick.Shapes 1.14
-import QtQml 2.14
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Shapes 1.12
+import QtQml 2.12
 
 Item {
     id: control
@@ -200,7 +200,7 @@ Item {
         property: "value"
         value: control.snap ? internal.snappedValue : internal.mapFromValue(startAngle, endAngle, minValue, maxValue, internal.angleProxy)
         when: internal.setUpdatedValue
-        restoreMode: Binding.RestoreBinding
+        // restoreMode: Binding.RestoreBinding
     }
 
     QtObject {

@@ -1,53 +1,22 @@
-import socket
-import threading
-import time
-import json
-# Define the server's IP address and port
-server_ip = '0.0.0.0'  # Listen on all available network interfaces
-server_port = 12345  # Replace with the desired port number
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton
+import sys
 
-# Create a socket object
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+def clickMethod():
+    print("Button clicked")
 
-# Bind the socket to the server address
-server_socket.bind((server_ip, server_port))
+app = QApplication([])
+win = QMainWindow()
+win.setWindowTitle("Test")
+win.resize(500,200)
+win.move(400,200)
 
-# Listen for incoming connections
-server_socket.listen(5)
-print(f"Server listening on {server_ip}:{server_port}")
+label = QLabel("This is a text", win)
+label.move(20,0)
 
-# List to hold client connections
-client_connections = []
+button = QPushButton("Click here", win)
+button.move(20,40)
+button.clicked.connect(clickMethod)
 
-# Function to handle a client connection
-def handle_client(client_socket):
-    try:
-        while True:
-            time.sleep(1)
-            # Receive data from the client
-            # data = client_socket.recv(1024)
-            # if not data:
-            #     break
-            
-            # message = data.decode('utf-8')
-            # print(f"Received from client: {message}")
-            
-            # Send a response back to the client
-            response = json.dumps({"topic": "vehicle_speed", "speed": 134})
-            client_socket.send(response.encode('utf-8'))
-    except Exception as e:
-        print(f"Error: {str(e)}")
-    finally:
-        client_socket.close()
+win.show()
 
-# Main server loop to accept incoming connections
-while True:
-    client_socket, client_address = server_socket.accept()
-    print(f"Accepted connection from {client_address[0]}:{client_address[1]}")
-    
-    # Add the client socket to the list of connections
-    client_connections.append(client_socket)
-    
-    # Create a thread to handle communication with the client
-    client_thread = threading.Thread(target=handle_client, args=(client_socket,))
-    client_thread.start()
+sys.exit(app.exec_())

@@ -1,13 +1,13 @@
-import QtQuick 2.15
-import QtQuick.Window 2.15
-import QtQuick.Controls 2.15
+import QtQuick 2.12
+import QtQuick.Window 2.12
+import QtQuick.Controls 2.12
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Extras 1.4
 import QtQuick.Extras.Private 1.0
 
 
 //import QtQuick 2.0
-import QtCharts 2.1
+import QtCharts 2.3
 import "../controls"
 
 
